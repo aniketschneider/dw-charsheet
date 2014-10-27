@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CharSheet</string>
+    <string name="action_settings">Settings</string>
+    <string name="ability_strength">Strength</string>
+    <string name="ability_dexterity">Dexterity</string>
+    <string name="ability_constitution">Constitution</string>
+    <string name="ability_intelligence">Intelligence</string>
+    <string name="ability_wisdom">Wisdom</string>
+    <string name="ability_charisma">Charisma</string>
+
+</resources>

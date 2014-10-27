@@ -1,0 +1,9 @@
+# Android Studio
+build/
+app/build/
+.idea/
+.gradle/
+local.properties
+
+# vim
+*.swp

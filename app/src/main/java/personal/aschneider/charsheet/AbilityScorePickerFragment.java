@@ -16,17 +16,20 @@ import android.widget.NumberPicker;
 import android.widget.NumberPicker.OnValueChangeListener;
 
 public class AbilityScorePickerFragment extends DialogFragment {
-	public static final String EXTRA_SCORE_KEY = "personal.aschneider.charsheet.DatePickerFragment.score";
-	public static final String EXTRA_NAME_KEY = "personal.aschneider.charsheet.DatePickerFragment.name";
-	
-	private String abilityName;
+	public static final String EXTRA_SCORE_KEY = "personal.aschneider.charsheet.AbilityScorePickerFragment.score";
+	public static final String EXTRA_NAME_KEY = "personal.aschneider.charsheet.AbilityScorePickerFragment.name";
+    public static final String EXTRA_CALLBACK_KEY = "personal.aschneider.charsheet.AbilityScorePickerFragment.callback_key";
+
+    private String abilityName;
 	private int abilityScore;
+    private Integer callbackKey;
 	
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 		View v = getActivity().getLayoutInflater().inflate(R.layout.dialog_number, null);
 		
 		abilityScore = getArguments().getInt(EXTRA_SCORE_KEY);
+        callbackKey = getArguments().getInt(EXTRA_CALLBACK_KEY);
 		
 		NumberPicker picker = (NumberPicker) v.findViewById(R.id.dialog_number_numberPicker);
 		
@@ -64,10 +67,11 @@ public class AbilityScorePickerFragment extends DialogFragment {
 			.create();
 	}
 	
-	public static AbilityScorePickerFragment newInstance(String abilityName, int abilityScore) {
+	public static AbilityScorePickerFragment newInstance(String abilityName, int abilityScore, Integer callbackKey) {
 		Bundle args = new Bundle();
 		args.putString(EXTRA_NAME_KEY, abilityName);
 		args.putInt(EXTRA_SCORE_KEY, abilityScore);
+        args.putInt(EXTRA_CALLBACK_KEY, callbackKey);
 		
 		AbilityScorePickerFragment fragment = new AbilityScorePickerFragment();
 		fragment.setArguments(args);
@@ -81,6 +85,7 @@ public class AbilityScorePickerFragment extends DialogFragment {
 		
 		Intent i = new Intent();
 		i.putExtra(EXTRA_SCORE_KEY, abilityScore);
+        i.putExtra(EXTRA_CALLBACK_KEY, callbackKey);
 		
 		getTargetFragment().onActivityResult(getTargetRequestCode(), resultCode, i);
 	}

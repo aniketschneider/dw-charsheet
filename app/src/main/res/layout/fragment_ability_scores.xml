@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/abilityContainer"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <view
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            class="personal.aschneider.charsheet.AbilityScoreView"
+            android:id="@+id/strWidget" />
+        <view
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            class="personal.aschneider.charsheet.AbilityScoreView"
+            android:id="@+id/dexWidget" />
+        <view
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            class="personal.aschneider.charsheet.AbilityScoreView"
+            android:id="@+id/conWidget" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <view
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            class="personal.aschneider.charsheet.AbilityScoreView"
+            android:id="@+id/intWidget" />
+        <view
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            class="personal.aschneider.charsheet.AbilityScoreView"
+            android:id="@+id/wisWidget" />
+        <view
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            class="personal.aschneider.charsheet.AbilityScoreView"
+            android:id="@+id/chaWidget" />
+    </LinearLayout>
+</LinearLayout>

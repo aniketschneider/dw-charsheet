@@ -34,7 +34,7 @@ public class AbilityScoresFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater,
 			ViewGroup container, Bundle savedInstanceState) {
-		View v = inflater.inflate(R.layout.fragment_ability_scores, null);
+		View v = inflater.inflate(R.layout.fragment_character_sheet, null);
 
         abilityScores.put(R.string.ability_strength, new AbilityScore(getString(R.string.ability_strength), 8));
         abilityScores.put(R.string.ability_dexterity, new AbilityScore(getString(R.string.ability_dexterity), 9));

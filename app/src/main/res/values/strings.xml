@@ -9,5 +9,12 @@
     <string name="ability_intelligence">Intelligence</string>
     <string name="ability_wisdom">Wisdom</string>
     <string name="ability_charisma">Charisma</string>
+    <string name="damageDieLabel">Damage Die</string>
+    <string name="armorLabel">Armor</string>
+    <string name="hitPointsLabel">Hit Points</string>
+    <string name="loadLabel">Load</string>
+    <string name="bonds">Bonds</string>
+    <string name="moves">Moves</string>
+    <string name="gear">Gear</string>
 
 </resources>

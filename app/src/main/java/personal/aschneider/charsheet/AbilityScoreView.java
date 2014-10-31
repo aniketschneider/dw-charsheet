@@ -1,6 +1,7 @@
 package personal.aschneider.charsheet;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
@@ -10,6 +11,7 @@ import android.widget.TextView;
  * Created by aschneider on 10/27/14.
  */
 public class AbilityScoreView extends LinearLayout {
+    //TODO: awkward to store mutable abilityScore object here
     private AbilityScore abilityScore;
 
     private TextView abilityNameView;
@@ -18,27 +20,34 @@ public class AbilityScoreView extends LinearLayout {
     private TextView abilityScoreView;
     private TextView abilityModView;
 
-    public AbilityScoreView(Context context, AttributeSet attrs, AbilityScore abilityScore) {
-        super(context, attrs);
-        inflateViews(context);
-
-        this.abilityScore = abilityScore;
-        updateViews();
-    }
-
     public AbilityScoreView(Context context) {
         super(context);
         inflateViews(context);
-    }
-
-    public AbilityScoreView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        inflateViews(context);
+        // TODO: what should happen here?
     }
 
     public AbilityScoreView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         inflateViews(context);
+
+        readAttributes(context, attrs);
+    }
+
+    public AbilityScoreView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        inflateViews(context);
+
+        readAttributes(context, attrs);
+    }
+
+    private void readAttributes(Context context, AttributeSet attrs) {
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AbilityScoreView);
+        String longName = a.getString(R.styleable.AbilityScoreView_statName);
+        if (longName == null) longName = "REPLACE";
+        Integer score = a.getInteger(R.styleable.AbilityScoreView_score, 1);
+        a.recycle();
+
+        setAbilityScore(new AbilityScore(longName, score));
     }
 
     public void setAbilityScore(AbilityScore abilityScore) {
@@ -65,6 +74,13 @@ public class AbilityScoreView extends LinearLayout {
         abilityNameView.setText(abilityScore.getLongName());
         abilityScoreView.setText(Integer.valueOf(abilityScore.getValue()).toString());
         abilityModNameView.setText(abilityScore.getShortName());
-        abilityModView.setText(Integer.valueOf(abilityScore.getModifier()).toString());
+        Integer mod = Integer.valueOf(abilityScore.getModifier());
+        String modString;
+        if (mod >= 0) {
+            modString = "+" + mod.toString();
+        } else {
+            modString = mod.toString();
+        }
+        abilityModView.setText(modString);
     }
 }

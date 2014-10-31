@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/rectangle_border"
-    android:padding="5dp"
     android:layout_weight="1" >
-
+<!--
+    android:background="@drawable/rectangle_border"
+    android:padding="5dp" -->
     <TextView
         android:id="@+id/abilityNameView"
         android:layout_width="wrap_content"

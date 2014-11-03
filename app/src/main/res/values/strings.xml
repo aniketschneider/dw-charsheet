@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">CharSheet</string>
-    <string name="action_settings">Settings</string>
+  <string name="app_name">CharSheet</string>
+  <string name="action_settings">Settings</string>
 
-    <string name="label_damage_die">Damage Die</string>
-    <string name="label_armor">Armor</string>
-    <string name="label_hit_points">Hit Points</string>
-    <string name="label_load">Load</string>
-    <string name="bonds">Bonds</string>
-    <string name="moves">Moves</string>
-    <string name="gear">Gear</string>
+  <string name="label_damage_die">Damage Die</string>
+  <string name="label_armor">Armor</string>
+  <string name="label_hit_points">Hit Points</string>
+  <string name="label_load">Load</string>
+  <string name="bonds">Bonds</string>
+  <string name="moves">Moves</string>
+  <string name="gear">Gear</string>
 
-    <string name="new_character_name">New Character</string>
-    <string name="new_character_race">Choose Race</string>
-    <string name="new_character_alignment">Choose Alignment</string>
-    <string name="new_character_desc">Enter a description</string>
+  <string name="new_character_name">New Character</string>
+  <string name="new_character_race">Choose Race</string>
+  <string name="new_character_alignment">Choose Alignment</string>
+  <string name="new_character_desc">Enter a description</string>
 
-    <string name="ability_strength">Strength</string>
-    <string name="ability_dexterity">Dexterity</string>
-    <string name="ability_constitution">Constitution</string>
-    <string name="ability_intelligence">Intelligence</string>
-    <string name="ability_wisdom">Wisdom</string>
-    <string name="ability_charisma">Charisma</string>
+  <string name="ability_strength">Strength</string>
+  <string name="ability_dexterity">Dexterity</string>
+  <string name="ability_constitution">Constitution</string>
+  <string name="ability_intelligence">Intelligence</string>
+  <string name="ability_wisdom">Wisdom</string>
+  <string name="ability_charisma">Charisma</string>
 
-    <string name="race_human">Human</string>
-    <string name="race_elf">Elf</string>
-    <string name="race_dwarf">Dwarf</string>
-    <string name="race_halfling">Halfling</string>
+  <string name="race_human">Human</string>
+  <string name="race_elf">Elf</string>
+  <string name="race_dwarf">Dwarf</string>
+  <string name="race_halfling">Halfling</string>
 
-    <string name="alignment_lawful">Lawful</string>
-    <string name="alignment_chaotic">Chaotic</string>
-    <string name="alignment_good">Good</string>
-    <string name="alignment_evil">Evil</string>
-    <string name="alignment_neutral">Neutral</string>
+  <string name="alignment_lawful">Lawful</string>
+  <string name="alignment_chaotic">Chaotic</string>
+  <string name="alignment_good">Good</string>
+  <string name="alignment_evil">Evil</string>
+  <string name="alignment_neutral">Neutral</string>
 </resources>

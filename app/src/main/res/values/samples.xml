@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="sample_name">Kai the Druid</string>
-    <string name="sample_race">Halfling</string>
-    <string name="sample_alignment">Chaotic</string>
-    <string name="sample_level">12</string>
-    <string name="sample_experience">17</string>
-    <string name="sample_description">Wild Eyes\nBraided Hair\nUnlimited Potential</string>
+  <string name="sample_name">Kai the Druid</string>
+  <string name="sample_race">Halfling</string>
+  <string name="sample_alignment">Chaotic</string>
+  <string name="sample_level">12</string>
+  <string name="sample_experience">17</string>
+  <string name="sample_description">Wild Eyes\nBraided Hair\nUnlimited Potential</string>
 </resources>

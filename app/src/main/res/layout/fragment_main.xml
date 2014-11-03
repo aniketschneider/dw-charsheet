@@ -1,4 +1,4 @@
-<LinearLayout 
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,80 +12,80 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="personal.aschneider.charsheet.MainActivity$PlaceholderFragment" >
 
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="72dp"
+      android:orientation="horizontal" >
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="72dp"
-        android:orientation="horizontal" >
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="2" >
+
+      <TextView
+          android:id="@+id/textView2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="The Eagle of Tamar"
+          android:textAppearance="?android:attr/textAppearanceLarge" />
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal" >
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_weight="2" >
+            android:layout_weight="1" >
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="The Eagle of Tamar"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/textView3"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Race" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="1" >
-
-                    <TextView
-                        android:id="@+id/textView3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Race" />
-
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Level" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_weight="1" >
-
-                    <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Alignment" />
-
-                    <TextView
-                        android:id="@+id/textView6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Experience" />
-
-                </LinearLayout>
-
-            </LinearLayout>
+          <TextView
+              android:id="@+id/textView4"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Level" />
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView1"
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Description"
-            android:layout_weight="1" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1" >
+
+          <TextView
+              android:id="@+id/textView5"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Alignment" />
+
+          <TextView
+              android:id="@+id/textView6"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Experience" />
+
+        </LinearLayout>
+
+      </LinearLayout>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:layout_weight="1" />
+
+  </LinearLayout>
 
 </LinearLayout>

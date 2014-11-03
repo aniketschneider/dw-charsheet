@@ -5,50 +5,50 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_weight="1" >
-<!--
-    android:background="@drawable/rectangle_border"
-    android:padding="5dp" -->
-    <TextView
-        android:id="@+id/abilityNameView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="REPLACE"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center"
-        android:layout_marginTop="4dp" />
+  <!--
+      android:background="@drawable/rectangle_border"
+      android:padding="5dp" -->
+  <TextView
+      android:id="@+id/abilityNameView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="REPLACE"
+      android:textStyle="bold"
+      android:layout_gravity="center_horizontal"
+      android:gravity="center"
+      android:layout_marginTop="4dp" />
 
-    <TextView
-        android:id="@+id/abilityScoreView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="N"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="4dp" />
-    
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/black" />
+  <TextView
+      android:id="@+id/abilityScoreView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="N"
+      android:layout_gravity="center_horizontal"
+      android:gravity="center"
+      android:layout_marginBottom="4dp" />
 
-	<TextView
-        android:id="@+id/abilityModNameView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="REPLACE"
-        android:textStyle="bold"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center"
-        android:layout_marginTop="4dp" />
+  <View
+      android:layout_width="match_parent"
+      android:layout_height="1dp"
+      android:background="@android:color/black" />
 
-    <TextView
-        android:id="@+id/abilityModView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="N"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center"
-        android:layout_marginBottom="4dp" />
+  <TextView
+      android:id="@+id/abilityModNameView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="REPLACE"
+      android:textStyle="bold"
+      android:layout_gravity="center_horizontal"
+      android:gravity="center"
+      android:layout_marginTop="4dp" />
+
+  <TextView
+      android:id="@+id/abilityModView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="N"
+      android:layout_gravity="center_horizontal"
+      android:gravity="center"
+      android:layout_marginBottom="4dp" />
 
 </LinearLayout>

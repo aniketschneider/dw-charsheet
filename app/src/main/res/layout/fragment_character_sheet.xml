@@ -175,7 +175,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/damageDieLabel"
+                android:text="@string/label_damage_die"
                 android:background="#ffffffff"
                 android:layout_marginBottom="4dp"
                 android:gravity="center" />
@@ -200,7 +200,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/armorLabel"
+                android:text="@string/label_armor"
                 android:background="#ffffffff"
                 android:layout_marginBottom="4dp"
                 android:gravity="center" />
@@ -225,7 +225,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/hitPointsLabel"
+                android:text="@string/label_hit_points"
                 android:background="#ffffffff"
                 android:layout_marginBottom="4dp"
                 android:gravity="center" />
@@ -250,7 +250,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/loadLabel"
+                android:text="@string/label_load"
                 android:background="#ffffffff"
                 android:layout_marginBottom="4dp"
                 android:gravity="center" />

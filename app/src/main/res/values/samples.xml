@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="sample_name">Kai the Druid</string>
+  <string name="sample_name">Kai</string>
+  <string name="sample_class">Druid</string>
   <string name="sample_race">Halfling</string>
   <string name="sample_alignment">Chaotic</string>
   <string name="sample_level">12</string>

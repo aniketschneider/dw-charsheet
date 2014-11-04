@@ -40,8 +40,8 @@ public class Playpen {
     this.characters.put(character.getId(), character);
   }
 
-  public Character newCharacter(Context c) {
-    Character newCharacter = new Character(c);
+  public Character newCharacter(Context c, CharacterClass characterClass) {
+    Character newCharacter = new Character(c, characterClass);
     this.addCharacter(newCharacter);
     return newCharacter;
   }

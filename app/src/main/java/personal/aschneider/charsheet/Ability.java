@@ -19,6 +19,7 @@ public class Ability implements Serializable {
   public static final Ability WISDOM = new Ability(R.string.ability_wisdom);
   public static final Ability CHARISMA = new Ability(R.string.ability_charisma);
 
+  // Important to have canonical ordering, for save/load serialization purposes
   public static final List<Ability> ALL = ImmutableList.<Ability>builder()
       .add(STRENGTH)
       .add(DEXTERITY)

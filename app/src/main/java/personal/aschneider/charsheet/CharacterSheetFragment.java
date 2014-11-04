@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.common.collect.Maps;
 
@@ -21,7 +22,17 @@ public class CharacterSheetFragment extends Fragment {
   private static final String SCORE_DIALOG_TAG = "score_dialog";
 
   private UUID characterId;
+  private TextView characterClass;
+  private TextView race;
+  private TextView alignment;
+  private TextView level;
+  private TextView experience;
+  private TextView description;
   private Map<Ability, AbilityScoreView> abilityScoreViews = Maps.newHashMap();
+  private TextView damageDie;
+  private TextView armor;
+  private TextView hitPoints;
+  private TextView load;
 
   public static CharacterSheetFragment newInstance(UUID characterId) {
     Bundle args = new Bundle();
@@ -44,14 +55,25 @@ public class CharacterSheetFragment extends Fragment {
     } else {
       this.characterId = characterId;
     }
+
+    setRetainInstance(true);
   }
 
   @Override
   public View onCreateView(LayoutInflater inflater,
                            ViewGroup container, Bundle savedInstanceState) {
-    View v = inflater.inflate(R.layout.fragment_character_sheet, null);
+    View v = inflater.inflate(R.layout.fragment_character_sheet, container, false);
 
-    Character character = Playpen.getInstance().getCharacter(characterId);
+    characterClass = (TextView) v.findViewById(R.id.class_view);
+    race = (TextView) v.findViewById(R.id.race_view);
+    alignment = (TextView) v.findViewById(R.id.alignment_view);
+    level = (TextView) v.findViewById(R.id.level_view);
+    experience = (TextView) v.findViewById(R.id.experience_view);
+    description = (TextView) v.findViewById(R.id.description_view);
+    damageDie = (TextView) v.findViewById(R.id.damage_die_view);
+    armor = (TextView) v.findViewById(R.id.armor_view);
+    hitPoints = (TextView) v.findViewById(R.id.hit_points_view);
+    load = (TextView) v.findViewById(R.id.load_view);
 
     abilityScoreViews.put(Ability.STRENGTH, (AbilityScoreView) v.findViewById(R.id.strWidget));
     abilityScoreViews.put(Ability.DEXTERITY, (AbilityScoreView) v.findViewById(R.id.dexWidget));
@@ -61,10 +83,11 @@ public class CharacterSheetFragment extends Fragment {
     abilityScoreViews.put(Ability.CHARISMA, (AbilityScoreView) v.findViewById(R.id.chaWidget));
 
     for (Map.Entry<Ability, AbilityScoreView> e : abilityScoreViews.entrySet()) {
-      e.getValue().setScore(character.getAbilityScore(e.getKey()));
       setAbilityWidgetListener(e.getValue());
     }
 
+
+    updateCharacterData();
 
     return v;
   }
@@ -75,7 +98,8 @@ public class CharacterSheetFragment extends Fragment {
     if (requestCode == REQUEST_SCORE) {
       Ability ability = (Ability) data.getSerializableExtra(AbilityScorePickerFragment.EXTRA_ABILITY_KEY);
       int newScore = data.getIntExtra(AbilityScorePickerFragment.EXTRA_SCORE_KEY, abilityScoreViews.get(ability).getScore());
-      abilityScoreViews.get(ability).setScore(newScore);
+      Playpen.getInstance().getCharacter(characterId).setAbilityScore(ability, newScore);
+      updateCharacterData();
     }
   }
 
@@ -96,4 +120,23 @@ public class CharacterSheetFragment extends Fragment {
     });
   }
 
+  private void updateCharacterData() {
+    Character character = Playpen.getInstance().getCharacter(characterId);
+
+    getActivity().setTitle(character.getName());
+    characterClass.setText(character.getCharacterClass().getName(getActivity()));
+    race.setText(character.getRace(getActivity()));
+    alignment.setText(character.getAlignment(getActivity()));
+    level.setText(Integer.valueOf(character.getLevel()).toString());
+    experience.setText(Integer.valueOf(character.getXp()).toString());
+    description.setText(character.getDescription());
+    damageDie.setText(character.getDamageDie());
+    armor.setText(Integer.valueOf(character.getArmor()).toString());
+    hitPoints.setText(character.getCurrentHp() + "/" + character.getMaxHp());
+    load.setText(character.getCurrentLoad() + "/" + character.getMaxLoad());
+
+    for (Map.Entry<Ability, AbilityScoreView> e : abilityScoreViews.entrySet()) {
+      e.getValue().setScore(character.getAbilityScore(e.getKey()));
+    }
+  }
 }

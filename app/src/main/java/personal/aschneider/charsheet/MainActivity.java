@@ -14,7 +14,8 @@ public class MainActivity extends ActionBarActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     if (savedInstanceState == null) {
-      Character sampleChar = Playpen.getInstance().newCharacter(this);
+      // TODO: unstub
+      Character sampleChar = Playpen.getInstance().newCharacter(this, CharacterClass.BARD);
       getSupportFragmentManager().beginTransaction()
           .add(R.id.container, CharacterSheetFragment.newInstance(sampleChar.getId()))
           .commit();

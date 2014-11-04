@@ -34,4 +34,12 @@
   <string name="alignment_good">Good</string>
   <string name="alignment_evil">Evil</string>
   <string name="alignment_neutral">Neutral</string>
+  <string name="class_bard">Bard</string>
+  <string name="class_cleric">Cleric</string>
+  <string name="class_druid">Druid</string>
+  <string name="class_fighter">Fighter</string>
+  <string name="class_paladin">Paladin</string>
+  <string name="class_ranger">Ranger</string>
+  <string name="class_thief">Thief</string>
+  <string name="class_wizard">Wizard</string>
 </resources>

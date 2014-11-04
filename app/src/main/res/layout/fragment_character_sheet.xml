@@ -5,6 +5,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+  <TextView
+      android:id="@+id/class_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textAppearance="?android:attr/textAppearanceLarge"
+      android:text="@string/sample_class"
+      android:layout_gravity="center_horizontal"
+      android:textStyle="bold"
+      />
+
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -22,12 +32,14 @@
           android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/race_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/sample_race"
             android:textAppearance="@android:style/TextAppearance.Medium" />
         <TextView
+            android:id="@+id/alignment_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -42,12 +54,14 @@
           android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/level_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/sample_level"
             android:textAppearance="@android:style/TextAppearance.Medium" />
         <TextView
+            android:id="@+id/experience_view"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -59,16 +73,16 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/description_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/sample_description"
-        android:id="@+id/textView" />
+        android:text="@string/sample_description" />
 
   </LinearLayout>
 
   <LinearLayout
-      android:id="@+id/abilityContainer"
+      android:id="@+id/ability_container"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="vertical" >
@@ -81,7 +95,7 @@
 
       <view
           my:score="16"
-          my:statName="Strength"
+          my:statName="@string/ability_strength"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           class="personal.aschneider.charsheet.AbilityScoreView"
@@ -93,7 +107,7 @@
           android:layout_marginBottom="5dp"/>
       <view
           my:score="15"
-          my:statName="Dexterity"
+          my:statName="@string/ability_dexterity"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           class="personal.aschneider.charsheet.AbilityScoreView"
@@ -103,7 +117,7 @@
           android:layout_margin="5dp" />
       <view
           my:score="13"
-          my:statName="Constitution"
+          my:statName="@string/ability_constitution"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           class="personal.aschneider.charsheet.AbilityScoreView"
@@ -123,7 +137,7 @@
 
       <view
           my:score="12"
-          my:statName="Intelligence"
+          my:statName="@string/ability_intelligence"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           class="personal.aschneider.charsheet.AbilityScoreView"
@@ -135,7 +149,7 @@
           android:layout_marginBottom="5dp" />
       <view
           my:score="9"
-          my:statName="Wisdom"
+          my:statName="@string/ability_wisdom"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           class="personal.aschneider.charsheet.AbilityScoreView"
@@ -145,7 +159,7 @@
           android:layout_marginBottom="5dp" />
       <view
           my:score="8"
-          my:statName="Charisma"
+          my:statName="@string/ability_charisma"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           class="personal.aschneider.charsheet.AbilityScoreView"
@@ -180,11 +194,11 @@
           android:layout_marginBottom="4dp"
           android:gravity="center" />
       <TextView
+          android:id="@+id/damage_die_view"
           android:layout_width="match_parent"
           android:layout_height="48dp"
           android:textAppearance="?android:attr/textAppearanceLarge"
           android:text="d12"
-          android:id="@+id/damageDie"
           android:gravity="center"
           android:background="#ffffffff"/>
     </LinearLayout>
@@ -205,11 +219,11 @@
           android:layout_marginBottom="4dp"
           android:gravity="center" />
       <TextView
+          android:id="@+id/armor_view"
           android:layout_width="match_parent"
           android:layout_height="48dp"
           android:textAppearance="?android:attr/textAppearanceLarge"
           android:text="2"
-          android:id="@+id/armor"
           android:gravity="center"
           android:background="#ffffffff" />
     </LinearLayout>
@@ -230,11 +244,11 @@
           android:layout_marginBottom="4dp"
           android:gravity="center" />
       <TextView
+          android:id="@+id/hit_points_view"
           android:layout_width="match_parent"
           android:layout_height="48dp"
           android:textAppearance="?android:attr/textAppearanceLarge"
           android:text="10/15"
-          android:id="@+id/hitPoints"
           android:gravity="center"
           android:background="#ffffffff" />
     </LinearLayout>
@@ -255,11 +269,11 @@
           android:layout_marginBottom="4dp"
           android:gravity="center" />
       <TextView
+          android:id="@+id/load_view"
           android:layout_width="match_parent"
           android:layout_height="48dp"
           android:textAppearance="?android:attr/textAppearanceLarge"
           android:text="6/8"
-          android:id="@+id/load"
           android:gravity="center"
           android:background="#ffffffff" />
     </LinearLayout>

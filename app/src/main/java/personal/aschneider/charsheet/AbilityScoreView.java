@@ -7,57 +7,72 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.common.base.Optional;
+
 /**
- * Created by aschneider on 10/27/14.
+ * A widget for displaying an ability score.  Requires at least an attribute to define which ability
+ * it refers to.
  */
 public class AbilityScoreView extends LinearLayout {
-  //TODO: awkward to store mutable abilityScore object here
-  private AbilityScore abilityScore;
+  private final Ability ability;
+  private int score;
 
   private TextView abilityNameView;
   private TextView abilityModNameView;
-
   private TextView abilityScoreView;
   private TextView abilityModView;
+
+  public int getScore() {
+    return score;
+  }
+
+  public Ability getAbility() {
+    return this.ability;
+  }
+
+  public void setScore(int value) {
+    this.score = value;
+    updateViews();
+  }
 
   public AbilityScoreView(Context context) {
     super(context);
     inflateViews(context);
+
     // TODO: what should happen here?
+    throw new RuntimeException("AbilityScoreView created without attributes");
   }
 
   public AbilityScoreView(Context context, AttributeSet attrs, int defStyle) {
     super(context, attrs, defStyle);
     inflateViews(context);
 
-    readAttributes(context, attrs);
+    ability = readAttributes(context, attrs);
+    updateViews();
   }
 
   public AbilityScoreView(Context context, AttributeSet attrs) {
     super(context, attrs);
     inflateViews(context);
 
-    readAttributes(context, attrs);
+    ability = readAttributes(context, attrs);
+    updateViews();
   }
 
-  private void readAttributes(Context context, AttributeSet attrs) {
+  private Ability readAttributes(Context context, AttributeSet attrs) {
     TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AbilityScoreView);
     String longName = a.getString(R.styleable.AbilityScoreView_statName);
-    if (longName == null) longName = "REPLACE";
-    Integer score = a.getInteger(R.styleable.AbilityScoreView_score, 1);
+    int score = a.getInt(R.styleable.AbilityScoreView_score, 1);
     a.recycle();
 
-    setAbilityScore(new AbilityScore(longName, score));
-  }
+    this.score = score;
 
-  public void setAbilityScore(AbilityScore abilityScore) {
-    this.abilityScore = abilityScore;
-    updateViews();
-  }
-
-  public void setScore(int value) {
-    abilityScore.setValue(value);
-    updateViews();
+    Optional<Ability> attributeAbility = Ability.get(context, longName);
+    if (attributeAbility.isPresent()) {
+      return attributeAbility.get();
+    } else {
+      throw new IllegalArgumentException(longName + " is not a valid ability");
+    }
   }
 
   private void inflateViews(Context c) {
@@ -71,10 +86,10 @@ public class AbilityScoreView extends LinearLayout {
   }
 
   private void updateViews() {
-    abilityNameView.setText(abilityScore.getLongName());
-    abilityScoreView.setText(Integer.valueOf(abilityScore.getValue()).toString());
-    abilityModNameView.setText(abilityScore.getShortName());
-    Integer mod = Integer.valueOf(abilityScore.getModifier());
+    abilityNameView.setText(ability.getName(getContext()));
+    abilityScoreView.setText(Integer.valueOf(score).toString());
+    abilityModNameView.setText(ability.getShortName(getContext()));
+    Integer mod = Integer.valueOf(Ability.getMod(score));
     String modString;
     if (mod >= 0) {
       modString = "+" + mod.toString();

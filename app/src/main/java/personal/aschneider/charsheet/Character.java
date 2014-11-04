@@ -18,10 +18,10 @@ public class Character {
   private int xp;
   private String description;
 
-  private Map<Integer, Integer> stats;
+  private Map<Ability, Integer> stats;
 
   public Character(Context c) {
-    context = c;
+    context = c.getApplicationContext();
 
     id = UUID.randomUUID();
     name = c.getString(R.string.new_character_name);
@@ -32,12 +32,9 @@ public class Character {
     description = c.getString(R.string.new_character_desc);
 
     stats = Maps.newConcurrentMap();
-    stats.put(R.string.ability_strength, 1);
-    stats.put(R.string.ability_dexterity, 1);
-    stats.put(R.string.ability_constitution, 1);
-    stats.put(R.string.ability_intelligence, 1);
-    stats.put(R.string.ability_wisdom, 1);
-    stats.put(R.string.ability_charisma, 1);
+    for (Ability a : Ability.ALL) {
+      stats.put(a, 1);
+    }
   }
 
   public UUID getId() {
@@ -92,7 +89,7 @@ public class Character {
     this.description = description;
   }
 
-  public int getStatValue(int abilityId) {
-    return stats.get(abilityId);
+  public int getAbilityScore(Ability ability) {
+    return stats.get(ability);
   }
 }

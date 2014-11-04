@@ -10,25 +10,40 @@ import android.view.View;
 import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 
-import java.util.HashMap;
+import com.google.common.collect.Maps;
+
 import java.util.Map;
+import java.util.UUID;
 
 public class CharacterSheetFragment extends Fragment {
-  public static final String EXTRA_ABILITY_NAME = "personal.aschneider.charsheet.CharacterSheetFragment.abilityName";
+  public static final String EXTRA_CHARACTER_ID = "personal.aschneider.charsheet.CharacterSheetFragment.characterId";
   private static final int REQUEST_SCORE = 1;
   private static final String SCORE_DIALOG_TAG = "score_dialog";
-  private Map<Integer, AbilityScore> abilityScores = new HashMap<Integer, AbilityScore>();
-  private Map<Integer, AbilityScoreView> abilityScoreViews = new HashMap<Integer, AbilityScoreView>();
 
-  public static CharacterSheetFragment newInstance() {
-    //stub
-    return new CharacterSheetFragment();
+  private UUID characterId;
+  private Map<Ability, AbilityScoreView> abilityScoreViews = Maps.newHashMap();
+
+  public static CharacterSheetFragment newInstance(UUID characterId) {
+    Bundle args = new Bundle();
+    args.putSerializable(EXTRA_CHARACTER_ID, characterId);
+
+    CharacterSheetFragment f = new CharacterSheetFragment();
+    f.setArguments(args);
+
+    return f;
   }
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
+    Bundle args = getArguments();
+    UUID characterId = (UUID) args.getSerializable(EXTRA_CHARACTER_ID);
+    if (characterId == null) {
+      throw new IllegalStateException("No characterId in fragment args");
+    } else {
+      this.characterId = characterId;
+    }
   }
 
   @Override
@@ -36,23 +51,18 @@ public class CharacterSheetFragment extends Fragment {
                            ViewGroup container, Bundle savedInstanceState) {
     View v = inflater.inflate(R.layout.fragment_character_sheet, null);
 
-    abilityScores.put(R.string.ability_strength, new AbilityScore(getString(R.string.ability_strength), 8));
-    abilityScores.put(R.string.ability_dexterity, new AbilityScore(getString(R.string.ability_dexterity), 9));
-    abilityScores.put(R.string.ability_constitution, new AbilityScore(getString(R.string.ability_constitution), 12));
-    abilityScores.put(R.string.ability_intelligence, new AbilityScore(getString(R.string.ability_intelligence), 13));
-    abilityScores.put(R.string.ability_wisdom, new AbilityScore(getString(R.string.ability_wisdom), 15));
-    abilityScores.put(R.string.ability_charisma, new AbilityScore(getString(R.string.ability_charisma), 16));
+    Character character = Playpen.getInstance().getCharacter(characterId);
 
-    abilityScoreViews.put(R.string.ability_strength, (AbilityScoreView) v.findViewById(R.id.strWidget));
-    abilityScoreViews.put(R.string.ability_dexterity, (AbilityScoreView) v.findViewById(R.id.dexWidget));
-    abilityScoreViews.put(R.string.ability_constitution, (AbilityScoreView) v.findViewById(R.id.conWidget));
-    abilityScoreViews.put(R.string.ability_intelligence, (AbilityScoreView) v.findViewById(R.id.intWidget));
-    abilityScoreViews.put(R.string.ability_wisdom, (AbilityScoreView) v.findViewById(R.id.wisWidget));
-    abilityScoreViews.put(R.string.ability_charisma, (AbilityScoreView) v.findViewById(R.id.chaWidget));
+    abilityScoreViews.put(Ability.STRENGTH, (AbilityScoreView) v.findViewById(R.id.strWidget));
+    abilityScoreViews.put(Ability.DEXTERITY, (AbilityScoreView) v.findViewById(R.id.dexWidget));
+    abilityScoreViews.put(Ability.CONSTITUTION, (AbilityScoreView) v.findViewById(R.id.conWidget));
+    abilityScoreViews.put(Ability.INTELLIGENCE, (AbilityScoreView) v.findViewById(R.id.intWidget));
+    abilityScoreViews.put(Ability.WISDOM, (AbilityScoreView) v.findViewById(R.id.wisWidget));
+    abilityScoreViews.put(Ability.CHARISMA, (AbilityScoreView) v.findViewById(R.id.chaWidget));
 
-    for (Map.Entry<Integer, AbilityScoreView> e : abilityScoreViews.entrySet()) {
-      e.getValue().setAbilityScore(abilityScores.get(e.getKey()));
-      setAbilityWidgetListener(e.getValue(), e.getKey());
+    for (Map.Entry<Ability, AbilityScoreView> e : abilityScoreViews.entrySet()) {
+      e.getValue().setScore(character.getAbilityScore(e.getKey()));
+      setAbilityWidgetListener(e.getValue());
     }
 
 
@@ -63,22 +73,19 @@ public class CharacterSheetFragment extends Fragment {
   public void onActivityResult(int requestCode, int resultCode, Intent data) {
     if (resultCode != Activity.RESULT_OK) return;
     if (requestCode == REQUEST_SCORE) {
-      int scoreKey = data.getIntExtra(AbilityScorePickerFragment.EXTRA_CALLBACK_KEY, R.string.ability_strength);
-      AbilityScore modifiedScore = abilityScores.get(scoreKey);
-      int n = data.getIntExtra(AbilityScorePickerFragment.EXTRA_SCORE_KEY, modifiedScore.getValue());
-      modifiedScore.setValue(n);
-      abilityScoreViews.get(scoreKey).setScore(n);
+      Ability ability = (Ability) data.getSerializableExtra(AbilityScorePickerFragment.EXTRA_ABILITY_KEY);
+      int newScore = data.getIntExtra(AbilityScorePickerFragment.EXTRA_SCORE_KEY, abilityScoreViews.get(ability).getScore());
+      abilityScoreViews.get(ability).setScore(newScore);
     }
   }
 
-  private void setAbilityWidgetListener(AbilityScoreView widget, final Integer scoreKey) {
+  private void setAbilityWidgetListener(final AbilityScoreView widget) {
     widget.setOnLongClickListener(new OnLongClickListener() {
       @Override
       public boolean onLongClick(View v) {
         AbilityScorePickerFragment fragment = AbilityScorePickerFragment.newInstance(
-            abilityScores.get(scoreKey).getLongName(),
-            abilityScores.get(scoreKey).getValue(),
-            scoreKey);
+            widget.getAbility(),
+            widget.getScore());
         FragmentManager fm = getActivity().getSupportFragmentManager();
 
         fragment.setTargetFragment(CharacterSheetFragment.this, REQUEST_SCORE);

@@ -16,6 +16,8 @@ public class MainActivity extends ActionBarActivity {
     if (savedInstanceState == null) {
       // TODO: unstub
       Character sampleChar = Playpen.getInstance().newCharacter(this, CharacterClass.BARD);
+      sampleChar.setAlignmentId(R.string.alignment_chaotic);
+      sampleChar.setRaceId(R.string.race_elf);
       getSupportFragmentManager().beginTransaction()
           .add(R.id.container, CharacterSheetFragment.newInstance(sampleChar.getId()))
           .commit();

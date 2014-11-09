@@ -5,15 +5,14 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_weight="1" >
-  <!--
-      android:background="@drawable/rectangle_border"
-      android:padding="5dp" -->
+
   <TextView
       android:id="@+id/abilityNameView"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="REPLACE"
       android:textStyle="bold"
+      android:textAppearance="@android:style/TextAppearance.Medium"
       android:layout_gravity="center_horizontal"
       android:gravity="center"
       android:layout_marginTop="4dp" />
@@ -23,6 +22,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="N"
+      android:textAppearance="@android:style/TextAppearance.Medium"
       android:layout_gravity="center_horizontal"
       android:gravity="center"
       android:layout_marginBottom="4dp" />
@@ -38,6 +38,7 @@
       android:layout_height="wrap_content"
       android:text="REPLACE"
       android:textStyle="bold"
+      android:textAppearance="@android:style/TextAppearance.Medium"
       android:layout_gravity="center_horizontal"
       android:gravity="center"
       android:layout_marginTop="4dp" />
@@ -47,6 +48,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="N"
+      android:textAppearance="@android:style/TextAppearance.Medium"
       android:layout_gravity="center_horizontal"
       android:gravity="center"
       android:layout_marginBottom="4dp" />

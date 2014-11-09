@@ -4,7 +4,7 @@
   <string name="app_name">CharSheet</string>
   <string name="action_settings">Settings</string>
 
-  <string name="label_damage_die">Damage Die</string>
+  <string name="label_damage_die">Damage</string>
   <string name="label_armor">Armor</string>
   <string name="label_hit_points">Hit Points</string>
   <string name="label_load">Load</string>

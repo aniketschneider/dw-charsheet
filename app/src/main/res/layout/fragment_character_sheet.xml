@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:my="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="#FFFFFF"
+              android:baselineAligned="true">
 
-  <TextView
-      android:id="@+id/class_view"
+  <android.support.v7.widget.CardView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:textAppearance="?android:attr/textAppearanceLarge"
-      android:text="@string/sample_class"
       android:layout_gravity="center_horizontal"
-      android:textStyle="bold"
-      />
+      app:cardElevation="4dp">
+
+    <TextView
+        android:id="@+id/class_view"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:text="@string/sample_class"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:background="@color/primaryLight"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        />
+  </android.support.v7.widget.CardView>
 
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:orientation="horizontal">
+      android:orientation="horizontal"
+      android:gravity="center_vertical"
+      >
 
     <LinearLayout
         android:layout_width="0dp"
@@ -34,17 +49,25 @@
         <TextView
             android:id="@+id/race_view"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:text="@string/sample_race"
-            android:textAppearance="@android:style/TextAppearance.Medium" />
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            android:background="@color/primaryLight"
+            android:layout_margin="4dp"/>
         <TextView
             android:id="@+id/alignment_view"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:text="@string/sample_alignment"
-            android:textAppearance="@android:style/TextAppearance.Medium" />
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            android:background="@color/primaryLight"
+            android:layout_margin="4dp"/>
 
       </LinearLayout>
 
@@ -56,17 +79,25 @@
         <TextView
             android:id="@+id/level_view"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:text="@string/sample_level"
-            android:textAppearance="@android:style/TextAppearance.Medium" />
+            android:textAppearance="@android:style/TextAppearance.Medium"
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            android:background="@color/primaryLight"
+            android:layout_margin="4dp"/>
         <TextView
             android:id="@+id/experience_view"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="48dp"
             android:layout_weight="1"
             android:text="@string/sample_experience"
-            android:textAppearance="@android:style/TextAppearance.Medium" />
+            android:textAppearance="@android:style/TextAppearance.Medium"
+            android:gravity="center_vertical"
+            android:padding="4dp"
+            android:background="@color/primaryLight"
+            android:layout_margin="4dp"/>
 
       </LinearLayout>
 
@@ -75,9 +106,13 @@
     <TextView
         android:id="@+id/description_view"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="@string/sample_description" />
+        android:text="@string/sample_description"
+        android:gravity="center_vertical"
+        android:background="@color/primaryLight"
+        android:padding="4dp"
+        android:layout_margin="4dp"/>
 
   </LinearLayout>
 
@@ -91,84 +126,104 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ff000000">
+        >
 
-      <view
-          my:score="16"
-          my:statName="@string/ability_strength"
+      <android.support.v7.widget.CardView
           android:layout_width="0dp"
           android:layout_height="wrap_content"
-          class="personal.aschneider.charsheet.AbilityScoreView"
-          android:id="@+id/strWidget"
           android:layout_weight="1"
-          android:background="#ffffffff"
-          android:layout_marginLeft="5dp"
-          android:layout_marginTop="5dp"
-          android:layout_marginBottom="5dp"/>
-      <view
-          my:score="15"
-          my:statName="@string/ability_dexterity"
+          app:cardElevation="4dp">
+        <view
+            app:score="16"
+            app:statName="@string/ability_strength"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            class="personal.aschneider.charsheet.AbilityScoreView"
+            android:id="@+id/strWidget"
+            android:background="@color/primaryLight"/>
+      </android.support.v7.widget.CardView>
+
+      <android.support.v7.widget.CardView
           android:layout_width="0dp"
           android:layout_height="wrap_content"
-          class="personal.aschneider.charsheet.AbilityScoreView"
-          android:id="@+id/dexWidget"
           android:layout_weight="1"
-          android:background="#ffffffff"
-          android:layout_margin="5dp" />
-      <view
-          my:score="13"
-          my:statName="@string/ability_constitution"
+          app:cardElevation="4dp">
+        <view
+            app:score="15"
+            app:statName="@string/ability_dexterity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            class="personal.aschneider.charsheet.AbilityScoreView"
+            android:id="@+id/dexWidget"
+            android:background="@color/primaryLight" />
+      </android.support.v7.widget.CardView>
+
+      <android.support.v7.widget.CardView
           android:layout_width="0dp"
           android:layout_height="wrap_content"
-          class="personal.aschneider.charsheet.AbilityScoreView"
-          android:id="@+id/conWidget"
           android:layout_weight="1"
-          android:background="#ffffffff"
-          android:layout_marginRight="5dp"
-          android:layout_marginTop="5dp"
-          android:layout_marginBottom="5dp" />
+          app:cardElevation="4dp">
+        <view
+            app:score="13"
+            app:statName="@string/ability_constitution"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            class="personal.aschneider.charsheet.AbilityScoreView"
+            android:id="@+id/conWidget"
+            android:background="@color/primaryLight" />
+      </android.support.v7.widget.CardView>
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ff000000">
+        >
 
-      <view
-          my:score="12"
-          my:statName="@string/ability_intelligence"
+      <android.support.v7.widget.CardView
           android:layout_width="0dp"
           android:layout_height="wrap_content"
-          class="personal.aschneider.charsheet.AbilityScoreView"
-          android:id="@+id/intWidget"
           android:layout_weight="1"
-          android:background="#ffffffff"
-          android:layout_marginLeft="5dp"
-          android:layout_marginRight="5dp"
-          android:layout_marginBottom="5dp" />
-      <view
-          my:score="9"
-          my:statName="@string/ability_wisdom"
+          app:cardElevation="4dp">
+        <view
+            app:score="12"
+            app:statName="@string/ability_intelligence"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            class="personal.aschneider.charsheet.AbilityScoreView"
+            android:id="@+id/intWidget"
+            android:background="@color/primaryLight" />
+      </android.support.v7.widget.CardView>
+
+      <android.support.v7.widget.CardView
           android:layout_width="0dp"
           android:layout_height="wrap_content"
-          class="personal.aschneider.charsheet.AbilityScoreView"
-          android:id="@+id/wisWidget"
           android:layout_weight="1"
-          android:background="#ffffffff"
-          android:layout_marginBottom="5dp" />
-      <view
-          my:score="8"
-          my:statName="@string/ability_charisma"
+          app:cardElevation="4dp">
+        <view
+            app:score="9"
+            app:statName="@string/ability_wisdom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            class="personal.aschneider.charsheet.AbilityScoreView"
+            android:id="@+id/wisWidget"
+            android:background="@color/primaryLight" />
+      </android.support.v7.widget.CardView>
+
+      <android.support.v7.widget.CardView
           android:layout_width="0dp"
           android:layout_height="wrap_content"
-          class="personal.aschneider.charsheet.AbilityScoreView"
-          android:id="@+id/chaWidget"
           android:layout_weight="1"
-          android:background="#ffffffff"
-          android:layout_marginRight="5dp"
-          android:layout_marginLeft="5dp"
-          android:layout_marginBottom="5dp" />
+          app:cardElevation="4dp">
+        <view
+            app:score="8"
+            app:statName="@string/ability_charisma"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            class="personal.aschneider.charsheet.AbilityScoreView"
+            android:id="@+id/chaWidget"
+            android:background="@color/primaryLight" />
+      </android.support.v7.widget.CardView>
     </LinearLayout>
   </LinearLayout>
 
@@ -176,7 +231,6 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="horizontal"
-      android:background="#ff000000"
       android:layout_margin="5dp">
 
     <LinearLayout
@@ -184,13 +238,13 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_margin="5dp"
-        android:background="#ffffffff"
+        android:background="@color/primaryLight"
         android:orientation="vertical">
       <TextView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="@string/label_damage_die"
-          android:background="#ffffffff"
+          android:textAppearance="@android:style/TextAppearance.Medium"
           android:layout_marginBottom="4dp"
           android:gravity="center" />
       <TextView
@@ -200,13 +254,13 @@
           android:textAppearance="?android:attr/textAppearanceLarge"
           android:text="d12"
           android:gravity="center"
-          android:background="#ffffffff"/>
+          />
     </LinearLayout>
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="#ffffffff"
+        android:background="@color/primaryLight"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
@@ -215,7 +269,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="@string/label_armor"
-          android:background="#ffffffff"
+          android:textAppearance="@android:style/TextAppearance.Medium"
           android:layout_marginBottom="4dp"
           android:gravity="center" />
       <TextView
@@ -225,13 +279,13 @@
           android:textAppearance="?android:attr/textAppearanceLarge"
           android:text="2"
           android:gravity="center"
-          android:background="#ffffffff" />
+          />
     </LinearLayout>
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="#ffffffff"
+        android:background="@color/primaryLight"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
@@ -240,7 +294,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="@string/label_hit_points"
-          android:background="#ffffffff"
+          android:textAppearance="@android:style/TextAppearance.Medium"
           android:layout_marginBottom="4dp"
           android:gravity="center" />
       <TextView
@@ -250,13 +304,13 @@
           android:textAppearance="?android:attr/textAppearanceLarge"
           android:text="10/15"
           android:gravity="center"
-          android:background="#ffffffff" />
+          />
     </LinearLayout>
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="#ffffffff"
+        android:background="@color/primaryLight"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
@@ -265,7 +319,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="@string/label_load"
-          android:background="#ffffffff"
+          android:textAppearance="@android:style/TextAppearance.Medium"
           android:layout_marginBottom="4dp"
           android:gravity="center" />
       <TextView
@@ -275,7 +329,7 @@
           android:textAppearance="?android:attr/textAppearanceLarge"
           android:text="6/8"
           android:gravity="center"
-          android:background="#ffffffff" />
+          />
     </LinearLayout>
 
   </LinearLayout>
